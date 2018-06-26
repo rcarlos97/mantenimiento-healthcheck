@@ -8,7 +8,7 @@
 
 > - Proyecto Java EE - Maven
 > - Payara/Micro (5.182)
-> - Docker
+> - Docker / Docker Compose
 
 ## Forma de uso
 
@@ -37,5 +37,32 @@
        }
     }
 
+### Desplegar el proyecto
+
+>Tener las configuraciones en un Dockerfile y proceder a desplegar el proyecto:
+
+    $ mvn install
+    $ cd ../mantenimiento/src/main/resources/docker
+    $ docker-compose build
+    $ docker-compose up
+
 ### Verificación del status
-> 
+> Verificar el depliegue de los recursos en: 
+
+    http://<server>:<port>/matenimiento-1.0/ws/marca/all
+    
+>Verificar Health Check en:
+
+    http://<server>:<port>/health
+    
+>Obtendremos una respuesta del tipo:
+
+    {
+      "status": "UP",
+      "checks": [
+        {
+          "name": "first-check",
+          "status": "UP",
+          "mantenimiento": "marca"
+        }
+     }
