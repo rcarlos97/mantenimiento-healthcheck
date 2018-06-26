@@ -117,6 +117,10 @@ public class MarcaResource implements HealthCheck {
 
     @Override
     public HealthCheckResponse call() {
-        return HealthCheckResponse.named("successful-check").withData("mantenimiento", "marca").up().build();
+        if (mfl.check()==1) {
+            return HealthCheckResponse.named("successful-check").withData("mantenimiento", "marca").up().build();
+        }else{
+            return HealthCheckResponse.named("successful-check").withData("mantenimiento", "marca").down().build();
+        }
     }
 }

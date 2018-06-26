@@ -5,9 +5,12 @@
  */
 package sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.entity.Marca;
 
 /**
@@ -28,5 +31,15 @@ public class MarcaFacade extends AbstractFacade<Marca> implements MarcaFacadeLoc
     public MarcaFacade() {
         super(Marca.class);
     }
-    
+
+    @Override
+    public int check() {
+        try {
+            Query q = this.em.createNamedQuery("Marca.findAll");
+            q.getResultList();
+            return 1;
+        } catch (Exception ex) {
+            return 0;
+        }
+    }
 }
