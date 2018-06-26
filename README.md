@@ -12,7 +12,7 @@
 
 ## Forma de uso
 
-> Añadir  las dependencias de MicroProfile Health Check al .POM del proyecto
+### Añadir dependencias de MicroProfile Health Check al .POM
 
     <dependency>
             <groupId>org.eclipse.microprofile</groupId>
@@ -21,4 +21,19 @@
             <type>pom</type>
             <scope>provided</scope>
     </dependency>
+    
+### Agregar a los recursos las notaciones necesarias para la implementación
+
+    @Health
+    @ApplicationScoped
+    @Path("marca")
+    public class MarcaResource implements HealthCheck {
+    
+    [...]
+
+    @Override
+       public HealthCheckResponse call() {
+         return HealthCheckResponse.named("successful-check").withData("mantenimiento", "marca").up().build();
+       }
+    }
 
