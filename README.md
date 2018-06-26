@@ -7,8 +7,8 @@
 ## Requisitos
 
 > - Proyecto Java EE - Maven
-- Payara/Micro (5.182)
-- Docker
+> - Payara/Micro (5.182)
+> - Docker
 
 ## Forma de uso
 
