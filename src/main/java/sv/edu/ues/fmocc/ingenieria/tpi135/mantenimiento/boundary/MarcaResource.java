@@ -120,7 +120,7 @@ public class MarcaResource implements HealthCheck {
         if (mfl.check()==1) {
             return HealthCheckResponse.named("successful-check").withData("mantenimiento", "marca").up().build();
         }else{
-            return HealthCheckResponse.named("successful-check").withData("mantenimiento", "marca").down().build();
+            return HealthCheckResponse.named("unsuccessful-check").withData("mantenimiento", "marca").down().build();
         }
     }
 }
