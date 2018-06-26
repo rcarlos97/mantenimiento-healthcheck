@@ -57,12 +57,13 @@
     
 >Obtendremos una respuesta del tipo:
 
-    {
-      "status": "UP",
-      "checks": [
+    {"outcome":"UP",
+    "checks":[
         {
-          "name": "first-check",
-          "status": "UP",
-          "mantenimiento": "marca"
+        "name":"successful-check",
+        "state":"UP",
+        "data":{
+           "mantenimiento":"marca"
         }
-     }
+        }]
+    }
